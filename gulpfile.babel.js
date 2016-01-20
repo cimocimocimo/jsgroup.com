@@ -5,6 +5,10 @@ import browserSync from 'browser-sync';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';
 
+import fs from 'fs';
+import path from 'path';
+import yaml from 'js-yaml';
+
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
@@ -52,12 +56,51 @@ gulp.task('lint', lint('app/scripts/**/*.js'));
 gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 
 gulp.task('html', ['styles', 'scripts'], () => {
-  return gulp.src('app/*.html')
-    .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
-    .pipe($.if('*.js', $.uglify()))
-    .pipe($.if('*.css', $.cssnano()))
-    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-    .pipe(gulp.dest('dist'));
+    return gulp.src('app/templates/*.html')
+        .pipe($.data((file) => {
+            // get data
+            try {
+                return {
+                    global: yaml.safeLoad(fs.readFileSync('app/data/global.yaml', 'utf8')),
+                    page: yaml.safeLoad(fs.readFileSync('app/data/' + path.basename(file.path) + '.yaml', 'utf8')),
+                    runtime: {
+                        date: {
+                            year: new Date().getFullYear()
+                        }
+                    }
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        }))
+        .pipe($.nunjucks.compile())
+        .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
+        .pipe($.if('*.js', $.uglify()))
+        .pipe($.if('*.css', $.cssnano()))
+        .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('templates', () => {
+    return gulp.src('app/templates/*.html')
+        .pipe($.data((file) => {
+            // get data
+            try {
+                return {
+                    global: yaml.safeLoad(fs.readFileSync('app/data/global.yaml', 'utf8')),
+                    page: yaml.safeLoad(fs.readFileSync('app/data/' + path.basename(file.path) + '.yaml', 'utf8')),
+                    runtime: {
+                        date: {
+                            year: new Date().getFullYear()
+                        }
+                    }
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        }))
+        .pipe($.nunjucks.compile())
+        .pipe(gulp.dest('.tmp'));
 });
 
 gulp.task('images', () => {
@@ -92,9 +135,12 @@ gulp.task('extras', () => {
   }).pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
+gulp.task('clean', function(cb){
+    del.bind(null, ['.tmp', 'dist'])
+    cb();
+});
 
-gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
+gulp.task('serve', ['templates', 'styles', 'scripts', 'fonts'], () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -107,13 +153,14 @@ gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
   });
 
   gulp.watch([
-    'app/*.html',
+    '.tmp/*.html',
     '.tmp/scripts/**/*.js',
     'app/images/**/*',
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
-  gulp.watch('app/styles/**/*.scss', ['styles']);
+    gulp.watch(['app/templates/*.html', 'app/data/*.yaml'], ['templates']);
+    gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/scripts/**/*.js', ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
@@ -164,17 +211,17 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], (cb) => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
+
+    cb();
 });
 
-gulp.task('default', ['clean'], () => {
-  gulp.start('build');
-});
+gulp.task('default', ['clean', 'build']);
 
 // publish to S3 bucket
 // https://www.npmjs.com/package/gulp-awspublish
-gulp.task('publish:staging', function(){
+gulp.task('publish:staging', ['clean', 'build'], function(){
     var publisher = $.awspublish.create({
         params: {
             Bucket: 'jsgroup.cimolini.com'
@@ -210,3 +257,4 @@ gulp.task('publish:production', function(){
         .pipe(publisher.cache()) // create a cache file to speed up consecutive uploads
         .pipe($.awspublish.reporter()); // print upload updates to console
 });
+

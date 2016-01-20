@@ -1,0 +1,58 @@
+carousel:
+  items:
+    -
+      src: http://placehold.it/1024x460
+      alt: slide 1
+    -
+      src: http://placehold.it/1024x460
+      alt: slide 2
+    -
+      src: http://placehold.it/1024x460
+      alt: slide 3
+
+brands:
+  brands:
+    -
+      name: Theia
+      url: http://theiacouture.com
+      image:
+        largeSrc: http://placehold.it/940x330
+        smallSrc: http://placehold.it/455x210
+    -
+      name: JS Collections
+      url: http://theiacouture.com
+      image:
+        largeSrc: http://placehold.it/940x330
+        smallSrc: http://placehold.it/455x210
+    -
+      name: Cynthia Rowley
+      url: http://theiacouture.com
+      image:
+        largeSrc: http://placehold.it/940x330
+        smallSrc: http://placehold.it/455x210
+    -
+      name: Monique Lhuillier
+      url: http://theiacouture.com
+      image:
+        largeSrc: http://placehold.it/940x330
+        smallSrc: http://placehold.it/455x210
+    -
+      name: ML Brides
+      url: http://theiacouture.com
+      image:
+        largeSrc: http://placehold.it/940x330
+        smallSrc: http://placehold.it/455x210
+    -
+      name: David Meister
+      url: http://theiacouture.com
+      image:
+        largeSrc: http://placehold.it/940x330
+        smallSrc: http://placehold.it/455x210
+    -
+      name: Carmen Marc Valvo Infusion
+      url: http://theiacouture.com
+      image:
+        largeSrc: http://placehold.it/940x330
+        smallSrc: http://placehold.it/455x210
+about: a
+contact: c

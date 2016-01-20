@@ -32,7 +32,7 @@
         <div class="row">
           <div class="column-brand col-sm-5 col-xs-12">
             <h1 class="site-logo">
-              <img src="images/js-group-logo.svg" alt="JS Group Logo" />
+              <img src="{{ global.header.siteLogo.imgUrl }}" alt="JS Group Logo" />
             </h1>
           </div>
           <div class="column-nav col-sm-7 col-xs-12">
@@ -49,15 +49,11 @@
     <div id="carousel-main" class="carousel-main carousel slide" data-ride="carousel">
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img src="http://placehold.it/1024x460" alt="...">
+        {% for item in page.carousel.items %}
+        <div class="item{% if loop.first %} active{% endif %}">
+          <img src="{{ item.src }}" alt="{{ item.alt }}">
         </div>
-        <div class="item">
-          <img src="http://placehold.it/1024x460" alt="...">
-        </div>
-        <div class="item">
-          <img src="http://placehold.it/1024x460" alt="...">
-        </div>
+        {% endfor %}
       </div>
 
       <!-- Controls -->
@@ -76,27 +72,17 @@
         <div class="col-sm-12">
           <h2>Our Brands</h2>
         </div>
+        {% for brand in page.brands.brands %}
+        {% if loop.first %}
         <div class="col-sm-12">
-          feature brand
+          <img src="{{ brand.image.largeSrc }}" alt="" />
         </div>
+        {% else %}
         <div class="col-sm-6 col-xs-12">
-          brand 2
+          <img src="{{ brand.image.smallSrc }}" alt="" />
         </div>
-        <div class="col-sm-6 col-xs-12">
-          brand 3
-        </div>
-        <div class="col-sm-6 col-xs-12">
-          brand 4
-        </div>
-        <div class="col-sm-6 col-xs-12">
-          brand 5
-        </div>
-        <div class="col-sm-6 col-xs-12">
-          brand 6
-        </div>
-        <div class="col-sm-6 col-xs-12">
-          brand 7
-        </div>
+        {% endif %}
+        {% endfor %}
       </div>
     </div>
     
@@ -194,7 +180,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-10 col-xs-12 col-sm-offset-1 col-xs-offset-0">
-            JS Group International &copy; 2015
+            {{ global.footer.copyright }} &copy; {{ runtime.date.year }}
           </div>
         </div>
       </div>
