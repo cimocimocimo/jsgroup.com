@@ -74,11 +74,11 @@
         </div>
         {% for brand in page.brands.brands %}
         {% if loop.first %}
-        <div class="col-sm-12">
+        <div class="brand col-sm-12">
           <img src="{{ brand.image.largeSrc }}" alt="" />
         </div>
         {% else %}
-        <div class="col-sm-6 col-xs-12">
+        <div class="brand col-xs-6">
           <img src="{{ brand.image.smallSrc }}" alt="" />
         </div>
         {% endif %}
@@ -86,9 +86,9 @@
       </div>
     </div>
     
-    <div id="about" class="container about-us">
+    <div id="about" class="container about">
       <div class="row">
-        <div class="col-sm-12 col-sm-offset-1 col-xs-offset-0">
+        <div class="col-sm-12">
           <h2>About Us</h2>
         </div>
         <div class="col-sm-5 col-xs-12 col-sm-offset-1 col-xs-offset-0">

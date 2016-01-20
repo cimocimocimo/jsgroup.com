@@ -26,8 +26,11 @@ $line-height-base: 22/16;
 $headings-font-weight: 100;
 
 // Grid system
+$grid-gutter-width: 20px;
 
-$grid-cutter-width: 20px;
+// Container sizes
+$container-lg: 940px + $grid-gutter-width;
+
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
@@ -162,13 +165,48 @@ $header-main-height: 78px;
     }
 }
 
+%block-base {
+    h2 {
+        text-align: center;
+    }
+}
+
+.our-brands {
+    @extend %block-base;
+}
+
+.brand {
+    margin-bottom: $grid-gutter-width;
+
+    img {
+        width: 100%;
+    }
+
+    @include at-query($max, $screen-sm){
+        padding: 0;
+        margin-bottom: 0;
+
+        &.col-xs-6 {
+            width: 50%;
+        }
+        &.col-sm-12 {
+            width: 100%;
+        }
+    }
+}
+
 %inverted-color-base {
     background: black;
     color: white;
 }
 
+.about {
+    @extend %block-base;
+}
+
 .contact {
     @extend %inverted-color-base;
+    @extend %block-base;
 }
 
 footer {
