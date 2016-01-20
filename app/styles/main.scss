@@ -1,14 +1,165 @@
+// Bootstrap variables to override
 $icon-font-path: '../fonts/';
+
+// colors
+$gray: #575757;
+
+$brand-primary: #000000;
+
+$text-color: $gray;
+$link-color: $brand-primary;
+$link-hover-color: lighten($link-color, 40%);
+$link-hover-decoration: none;
+
+// Typography
+$font-family-sans-serif: 'Avenir Next', 'Helvetica Neue', Helvetica, sans-serif;
+
+$font-size-base: 16px;
+
+$font-size-h2: 48px;
+$font-size-h3: 20px;
+$font-size-h4: 16px;
+$font-size-h5: 14px;
+
+$line-height-base: 22/16;
+
+$headings-font-weight: 100;
+
+// Grid system
+
+$grid-cutter-width: 20px;
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
+
+// my variables
+$fontFilePath: 'fonts'; // no trailing slash!
+$fontStackAvenirNext: 'Avenir Next', 'Helvetica Neue', Helvetica, sans-serif;
+
+@mixin font-face($font-name, $font-filename-base, $style: 'normal', $weight: 400){
+    @font-face {
+        font-family: '#{$font-name}';
+        /* testing */
+        src: url('#{$fontFilePath}/#{$font-filename-base}.eot'); /* IE9 Compat Modes */
+        src: url('#{$fontFilePath}/#{$font-filename-base}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        // url('#{$fontFilePath}/#{$font-filename-base}.woff2') format('woff2'), /* Super Modern Browsers */
+        url('#{$fontFilePath}/#{$font-filename-base}.woff') format('woff'), /* Pretty Modern Browsers */
+        url('#{$fontFilePath}/#{$font-filename-base}.ttf')  format('truetype'); /* Safari, Android, iOS */
+
+        font-style: $style;
+        font-weight: $weight;
+    }
+}
+
+/* Vertical Centering Mixin - now 100% table free!
+   http://css-tricks.com/centering-in-the-unknown/ */
+@mixin verticalCenterChildElements() {
+    font-size: 0; /* set to remove the spacing from the :before element */
+
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+
+    > * {
+        font-size: 16px; /* ratchet up the font-size to the default base hight; */
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+/*============================================================================
+  Dependency-free breakpoint mixin
+  - http://blog.grayghostvisuals.com/sass/sass-media-query-mixin/
+  ==============================================================================*/
+$min: min-width;
+$max: max-width;
+@mixin at-query ($constraint, $viewport1, $viewport2:null) {
+    @if $constraint == $min {
+        @media screen and ($min: $viewport1) {
+            @content;
+        }
+    } @else if $constraint == $max {
+        @media screen and ($max: $viewport1) {
+            @content;
+        }
+    } @else {
+        @media screen and ($min: $viewport1) and ($max: $viewport2) {
+            @content;
+        }
+    }
+}
+
+@include font-face('Avenir Next', 'AvenirNext-Regular');
+@include font-face('Avenir Next', 'AvenirNext-SemiBold', $weight: 600);
+@include font-face('Avenir Next', 'AvenirNext-UltraLight', $weight: 100);
 
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
+}
+
+$header-main-height: 78px;
+.header-main {
+    border-bottom: 1px solid #ECECEC;
+
+    // columns
+    .row > div {
+        height: $header-main-height;
+        padding: 12px 0;
+    }
+
+    .column-brand {
+
+    }
+
+    .column-nav {
+        @include verticalCenterChildElements;
+
+        text-align: center;
+    }
+
+
+    @include at-query($max, $screen-sm){
+        .column-brand {
+            text-align: center;
+        }
+    }
+}
+
+.site-logo {
+    margin: 0;
+
+    img {
+        width: 230px;
+        height: 53px;
+    }
+}
+
+.nav-main {
+    text-align: center;
+    margin: 0;
+
+    a {
+        text-transform: uppercase;
+    }
+}
+
+.carousel-main {
+    .item {
+        img {
+            width: 100%;
+        }
+    }
+
+    .carousel-control {
+        background: none;
+    }
 }
 
 %inverted-color-base {
