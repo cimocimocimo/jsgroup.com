@@ -25,12 +25,26 @@ $line-height-base: 22/16;
 
 $headings-font-weight: 100;
 
+// Components
+
+$border-radius-base: 0px;
+$border-radius-large: 0px;
+$border-radius-small: 0px;
+
 // Grid system
 $grid-gutter-width: 20px;
 
 // Container sizes
 $container-lg: 940px + $grid-gutter-width;
 
+// Forms
+$input-bg: #696969;
+$input-bg-disabled: darken($input-bg, 25%);
+
+$input-color: #E2E2E2;
+$input-border: #2A2A2A;
+
+$input-color-placeholder: #e2e2e2;
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
@@ -146,10 +160,20 @@ $header-main-height: 78px;
 
 .nav-main {
     text-align: center;
-    margin: 0;
+    margin-bottom: 0;
+
+    li {
+        border-right: 1px solid black;
+        margin-left: -5px;
+
+        &:last-child {
+            border-right: 0;
+        }
+    }
 
     a {
         text-transform: uppercase;
+        padding: 0 20px;
     }
 }
 
@@ -166,8 +190,9 @@ $header-main-height: 78px;
 }
 
 %block-base {
-    h2 {
+    h2, h3 {
         text-align: center;
+        text-transform: uppercase;
     }
 }
 
@@ -198,6 +223,10 @@ $header-main-height: 78px;
 %inverted-color-base {
     background: black;
     color: white;
+
+    a {
+        color: white;
+    }
 }
 
 .about {
@@ -207,10 +236,50 @@ $header-main-height: 78px;
 .contact {
     @extend %inverted-color-base;
     @extend %block-base;
+
+    .address-column {
+        &:first-of-type {
+            border-right: 1px solid white;
+        }
+
+        h3 {
+            margin-top: 0;
+        }
+    }
+
+    address {
+        text-align: center;
+        font-weight: 100;
+        margin-bottom: 0;
+    }
+}
+
+.newsletter-signup {
+    background: rgba(#565656, 0.81);
+    padding: $grid-gutter-width $grid-gutter-width/2;
+
+    label {
+        font-weight: 100;
+    }
+
+    .email-row {
+        label {
+            font-size: 20px;
+            line-height: 36px;
+        }
+
+        input {
+            font-weight: 100;
+        }
+    }
 }
 
 footer {
     @extend %inverted-color-base;
 
+    height: 55px;
     text-align: right;
+    padding: 20px 0 10px;
+    font-weight: 600;
+    color: #E2E2E2;
 }

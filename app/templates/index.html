@@ -111,7 +111,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-4 col-xs-6 col-sm-offset-2 col-xs-offset-0">
+          <div class="address-column col-sm-5 col-xs-6 col-sm-offset-1 col-xs-offset-0">
             <h3>Montreal Office</h3>
             <address>
               225 rue Chabanel Suite 1015
@@ -123,7 +123,7 @@
               <a href="mailto:info@jsgroup.com">info@jsgroup.com</a>
             </address>
           </div>
-          <div class="col-sm-4 col-xs-6">
+          <div class="address-column col-sm-5 col-xs-6">
             <h3>New York Office</h3>
             <address>
               1412 Broadway Suite 1200
@@ -138,12 +138,16 @@
           
           <div class="col-sm-8 col-xs-12 col-sm-offset-2 col-xs-offset-0">
             <div class="row newsletter-signup">
-              <form method="post">
-                <div class="col-sm-12">
-                  <label for="newsletter-signup-email-address">Sign up for the latest news</label>
-                  <input type="text" id="newsletter-signup-email-address" name="newsletter-signup-email-address" />
+              <form class="" method="post">
+                <div class="email-row">
+                  <div class="col-sm-5">
+                    <label for="newsletter-signup-email-address">Sign up for the latest news</label>
+                  </div>
+                  <div class="col-sm-7">
+                    <input type="text" class="form-control" id="newsletter-signup-email-address" name="newsletter-signup-email-address" placeholder="Add your email address here" />
+                  </div>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-8">
                   <h4>Sign me up to:</h4>
                   
                   <label for="newsletter-signup-list-theia">THEIA</label>
@@ -159,13 +163,13 @@
                   <label for="newsletter-signup-list-check-all">Check All</label>
                   <input type="checkbox" id="newsletter-signup-list-check-all" name="newsletter-signup-list-check-all" />
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-4">
                   <h4>I am a:</h4>
                   
                   <label for="newsletter-signup-user-retailer">Retailer</label>
-                  <input type="checkbox" id="newsletter-signup-user-retailer" name="newsletter-signup-user-retailer" />
+                  <input type="radio" id="newsletter-signup-user-retailer" name="newsletter-signup-user-type" value="retailer"/>
                   <label for="newsletter-signup-user-customer">Customer</label>
-                  <input type="checkbox" id="newsletter-signup-user-customer" name="newsletter-signup-user-customer" />
+                  <input type="radio" id="newsletter-signup-user-customer" name="newsletter-signup-user-type" value="customer"/>
                 </div>
                 <div class="col-sm-12">
                   <button type="submit" id="newsletter-signup-submit" name="newsletter-signup-submit">Submit</button>
