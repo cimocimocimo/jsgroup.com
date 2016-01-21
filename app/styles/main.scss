@@ -46,12 +46,13 @@ $input-border: #2A2A2A;
 
 $input-color-placeholder: #e2e2e2;
 
+// @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // bower:scss
-@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "app/styles/_bootstrap-custom.scss";
 // endbower
 
 // my variables
-$fontFilePath: 'fonts'; // no trailing slash!
+$fontFilePath: '../fonts'; // no trailing slash!
 $fontStackAvenirNext: 'Avenir Next', 'Helvetica Neue', Helvetica, sans-serif;
 
 @mixin font-face($font-name, $font-filename-base, $style: 'normal', $weight: 400){
@@ -113,6 +114,8 @@ $max: max-width;
 @include font-face('Avenir Next', 'AvenirNext-Regular');
 @include font-face('Avenir Next', 'AvenirNext-SemiBold', $weight: 600);
 @include font-face('Avenir Next', 'AvenirNext-UltraLight', $weight: 100);
+
+@import 'icons';
 
 .browserupgrade {
   margin: 0.2em 0;
