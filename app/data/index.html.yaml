@@ -1,13 +1,13 @@
 carousel:
   items:
     -
-      src: http://placehold.it/1024x460
+      src: http://placehold.it/1024x460/4ECDC4/FFFFFF?text=First+Carousel+Slide
       alt: slide 1
     -
-      src: http://placehold.it/1024x460
+      src: http://placehold.it/1024x460/C7F464/FFFFFF?text=Second+Carousel+Slide
       alt: slide 2
     -
-      src: http://placehold.it/1024x460
+      src: http://placehold.it/1024x460/FF6B6B/FFFFFF?text=Thrid+Carousel+Slide
       alt: slide 3
 
 brands:
@@ -16,43 +16,43 @@ brands:
       name: Theia
       url: http://theiacouture.com
       image:
-        largeSrc: http://placehold.it/940x330
-        smallSrc: http://placehold.it/460x210
+        largeSrc: http://placehold.it/940x330/CFF09E/FFFFFF?text=Theia+Logo
+        smallSrc: http://placehold.it/460x210/CFF09E/FFFFFF?text=Theia+Logo
     -
       name: JS Collections
       url: http://theiacouture.com
       image:
-        largeSrc: http://placehold.it/940x330
-        smallSrc: http://placehold.it/460x210
+        largeSrc: http://placehold.it/940x330/A8DBA8/FFFFFF?text=JS+Collections+Logo
+        smallSrc: http://placehold.it/460x210/A8DBA8/FFFFFF?text=JS+Collections+Logo
     -
       name: Cynthia Rowley
       url: http://theiacouture.com
       image:
-        largeSrc: http://placehold.it/940x330
-        smallSrc: http://placehold.it/460x210
+        largeSrc: http://placehold.it/940x330/79BD9A/FFFFFF?text=Cynthia+Rowley+Logo
+        smallSrc: http://placehold.it/460x210/79BD9A/FFFFFF?text=Cynthia+Rowley+Logo
     -
       name: Monique Lhuillier
       url: http://theiacouture.com
       image:
-        largeSrc: http://placehold.it/940x330
-        smallSrc: http://placehold.it/460x210
+        largeSrc: http://placehold.it/940x330/3B8686/FFFFFF?text=Monique+Lhuillier+Logo
+        smallSrc: http://placehold.it/460x210/3B8686/FFFFFF?text=Monique+Lhuillier+Logo
     -
       name: ML Brides
       url: http://theiacouture.com
       image:
-        largeSrc: http://placehold.it/940x330
-        smallSrc: http://placehold.it/460x210
+        largeSrc: http://placehold.it/940x330/0B486B/FFFFFF?text=ML+Brides+Logo
+        smallSrc: http://placehold.it/460x210/0B486B/FFFFFF?text=ML+Brides+Logo
     -
       name: David Meister
       url: http://theiacouture.com
       image:
-        largeSrc: http://placehold.it/940x330
-        smallSrc: http://placehold.it/460x210
+        largeSrc: http://placehold.it/940x330/9BA657/FFFFFF?text=David+Meister+Logo
+        smallSrc: http://placehold.it/460x210/9BA657/FFFFFF?text=David+Meister+Logo
     -
       name: Carmen Marc Valvo Infusion
       url: http://theiacouture.com
       image:
-        largeSrc: http://placehold.it/940x330
-        smallSrc: http://placehold.it/460x210
+        largeSrc: http://placehold.it/940x330/A68C69/FFFFFF?text=Carmen+Marc+Valvo+Logo
+        smallSrc: http://placehold.it/460x210/A68C69/FFFFFF?text=Carmen+Marc+Valvo+Logo
 about: a
 contact: c

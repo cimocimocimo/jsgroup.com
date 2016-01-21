@@ -1,7 +1,8 @@
 @include font-face('JS Group Icons', 'js-group-icons');
 
-[class^="icon-"],
-[class*=" icon-"] {
+%icon-pseudo-element-base {
+    /* show the icon if modernizer detected support */
+    display: inline;
     font-family: 'JS Group Icons';
     speak: none;
     font-style: normal;
@@ -13,6 +14,28 @@
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+%icon-font-base {
+    display: inline-block;
+}
+
+$iconSelector: '[class^="icon-"], [class*=" icon-"]';
+#{$iconSelector},
+%icon-base {
+    @extend %icon-font-base;
+
+    &:before {
+        @extend %icon-pseudo-element-base;
+    }
+}
+
+%icon-suffix-base {
+    @extend %icon-font-base;
+
+    &:after {
+        @extend %icon-pseudo-element-base;
+    }
 }
 
 .icon-shopping-bag:before {
