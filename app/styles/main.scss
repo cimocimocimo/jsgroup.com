@@ -48,8 +48,8 @@ $input-color-placeholder: #e2e2e2;
 
 // @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // bower:scss
-@import "app/styles/_bootstrap-custom.scss";
 // endbower
+@import "app/styles/bootstrap-custom";
 
 // my variables
 $fontFilePath: '../fonts'; // no trailing slash!

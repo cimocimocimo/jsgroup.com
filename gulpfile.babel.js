@@ -203,12 +203,12 @@ gulp.task('wiredep', () => {
         }))
         .pipe(gulp.dest('app/styles'));
 
-    gulp.src('app/*.html')
+    gulp.src('app/templates/*.html')
         .pipe(wiredep({
             exclude: ['bootstrap-sass'],
             ignorePath: /^(\.\.\/)*\.\./
         }))
-        .pipe(gulp.dest('app'));
+        .pipe(gulp.dest('app/templates'));
 });
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], (cb) => {

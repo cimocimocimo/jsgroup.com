@@ -4,8 +4,8 @@
   "dependencies": {
     "bootstrap-sass": "~3.3.5",
     "modernizr": "~2.8.1",
-    "smooth-scroll": "~1.0.1",
-    "slick-carousel": "~1.5.9"
+    "slick-carousel": "~1.5.9",
+    "smooth-scroll": "https://github.com/cimocimocimo/smooth-scroll.git#~7.1.2"
   },
   "overrides": {
     "bootstrap-sass": {
