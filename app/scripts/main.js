@@ -1,4 +1,7 @@
-var jsGroup = (function($, smoothScroll, window, document, undefined){
+/*global $, smoothScroll*/
+'use strict';
+
+var jsGroup = (function($, smoothScroll){
     function publicInit(){
         console.log('publicInit');
 
@@ -8,10 +11,10 @@ var jsGroup = (function($, smoothScroll, window, document, undefined){
         });
 
         // site header
-        // cache.siteHeader.headroom({
-        //     "offset": options.plugins.headroom.offset,
-        //     "tolerance": options.plugins.headroom.tolerance
-        // });
+        $('.header-main').headroom({
+            "offset": 78,
+            "tolerance": 5
+        });
 
         // carousel
         $('#carousel-main').slick({
@@ -29,8 +32,8 @@ var jsGroup = (function($, smoothScroll, window, document, undefined){
         init: publicInit
     };
 
-})(jQuery, smoothScroll, window, document);
+})($, smoothScroll);
 
-jQuery(function(){
+$(function(){
     jsGroup.init({});
 });

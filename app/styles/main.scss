@@ -117,6 +117,31 @@ $max: max-width;
 
 @import 'icons';
 
+// header
+body {
+    padding-top: 78px;
+}
+
+.headroom {
+    transition: transform 200ms linear;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.headroom--pinned {
+    transform: translateY(0%);
+}
+.headroom--unpinned {
+    transform: translateY(-100%);
+}
+
+.hidden {
+    display: none;
+}
+
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
@@ -127,6 +152,7 @@ $max: max-width;
 $header-main-height: 78px;
 .header-main {
     border-bottom: 1px solid #ECECEC;
+    background: white;
 
     // columns
     .row > div {
@@ -143,7 +169,6 @@ $header-main-height: 78px;
 
         text-align: center;
     }
-
 
     @include at-query($max, $screen-sm){
         .column-brand {

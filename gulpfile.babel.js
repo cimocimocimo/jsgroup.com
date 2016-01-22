@@ -241,10 +241,10 @@ gulp.task('publish:staging', ['clean', 'build'], function(){
 });
 
 // publish to S3 bucket
-gulp.task('publish:production', function(){
+gulp.task('publish:production', ['clean', 'build'], function(){
     var publisher = $.awspublish.create({
         params: {
-            Bucket: 'jsgroup.com'
+            Bucket: 'jsgroup.cimolini.com'
         }
     });
 
@@ -254,7 +254,8 @@ gulp.task('publish:production', function(){
 
     return gulp.src('./dist/**')
         .pipe(publisher.publish(headers))
-        .pipe(publisher.cache()) // create a cache file to speed up consecutive uploads
+        .pipe(publisher.sync())
+        // .pipe(publisher.cache()) // create a cache file to speed up consecutive uploads
         .pipe($.awspublish.reporter()); // print upload updates to console
 });
 
