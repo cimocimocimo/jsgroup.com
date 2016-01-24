@@ -1,3 +1,5 @@
+@import "app/styles/icon-code-variables";
+
 @include font-face('JS Group Icons', 'js-group-icons');
 
 %icon-pseudo-element-base {
@@ -38,138 +40,270 @@ $iconSelector: '[class^="icon-"], [class*=" icon-"]';
     }
 }
 
-.icon-shopping-bag:before {
-    content: "\e60d";
+
+
+.icon-js-group-logo {
+    &:before {
+        content: $icon-js-group-logo;
+    }
 }
-.icon-box-checked:before {
-    content: "\f046";
+.icon-ml-brides-logo-black {
+    &:before {
+        content: $icon-ml-brides-logo-black;
+    }
 }
-.icon-box-unchecked:before {
-    content: "\f096";
+.icon-monique-lhuillier-logo-black {
+    &:before {
+        content: $icon-monique-lhuillier-logo-black;
+    }
 }
-.icon-menu:before {
-    content: "\e60c";
+.icon-cynthia-rowley-logo-black {
+    &:before {
+        content: $icon-cynthia-rowley-logo-black;
+    }
 }
-.icon-telephone-handset:before {
-    content: "\e600";
+.icon-js-collections-logo-black {
+    &:before {
+        content: $icon-js-collections-logo-black;
+    }
 }
-.icon-map-pin:before {
-    content: "\e601";
+.icon-carmen-marc-valvo-logo-black {
+    &:before {
+        content: $icon-carmen-marc-valvo-logo-black;
+    }
 }
-.icon-stamp:before {
-    content: "\e602";
+.icon-david-meister-logo-black {
+    &:before {
+        content: $icon-david-meister-logo-black;
+    }
 }
-.icon-arrow-right-solid:before {
-    content: "\e603";
+.icon-theia-logo-black {
+    &:before {
+        content: $icon-theia-logo-black;
+    }
 }
-.icon-facebook-f:before {
-    content: "\e604";
+.icon-box-unchecked {
+    &:before {
+        content: $icon-box-unchecked;
+    }
 }
-.icon-instagram:before {
-    content: "\e605";
+.icon-box-checked {
+    &:before {
+        content: $icon-box-checked;
+    }
 }
-.icon-pinterest-p:before {
-    content: "\e606";
+.icon-link {
+    &:before {
+        content: $icon-link;
+    }
 }
-.icon-arrow-right-xlarge:before {
-    content: "\e607";
+.icon-arrow-right-large {
+    &:before {
+        content: $icon-arrow-right-large;
+    }
 }
-.icon-arrow-left-xlarge:before {
-    content: "\e608";
+.icon-arrow-up-large {
+    &:before {
+        content: $icon-arrow-up-large;
+    }
 }
-.icon-search:before {
-    content: "\e609";
+.icon-arrow-down-large {
+    &:before {
+        content: $icon-arrow-down-large;
+    }
 }
-.icon-store:before {
-    content: "\e60a";
+.icon-arrow-left-large {
+    &:before {
+        content: $icon-arrow-left-large;
+    }
 }
-.icon-safe:before {
-    content: "\e60b";
+.icon-arrow-right-small {
+    &:before {
+        content: $icon-arrow-right-small;
+    }
 }
-.icon-fancy:before {
-    content: "\46";
+.icon-arrow-up-small {
+    &:before {
+        content: $icon-arrow-up-small;
+    }
 }
-.icon-twitter:before {
-    content: "\54";
+.icon-arrow-down-small {
+    &:before {
+        content: $icon-arrow-down-small;
+    }
 }
-.icon-facebook:before {
-    content: "\66";
+.icon-arrow-left-small {
+    &:before {
+        content: $icon-arrow-left-small;
+    }
 }
-.icon-pinterest:before {
-    content: "\70";
+.icon-arrow-right {
+    &:before {
+        content: $icon-arrow-right;
+    }
 }
-.icon-tumblr:before {
-    content: "\74";
+.icon-arrow-up {
+    &:before {
+        content: $icon-arrow-up;
+    }
 }
-.icon-vimeo:before {
-    content: "\76";
+.icon-arrow-down {
+    &:before {
+        content: $icon-arrow-down;
+    }
 }
-.icon-youtube:before {
-    content: "\79";
+.icon-arrow-left {
+    &:before {
+        content: $icon-arrow-left;
+    }
 }
-.icon-gift:before {
-    content: "\e60e";
+.icon-info-circle {
+    &:before {
+        content: $icon-info-circle;
+    }
 }
-.icon-calendar:before {
-    content: "\e60f";
+.icon-info {
+    &:before {
+        content: $icon-info;
+    }
 }
-.icon-arrow-left-curved:before {
-    content: "\e610";
+.icon-cross-circle {
+    &:before {
+        content: $icon-cross-circle;
+    }
 }
-.icon-arrow-right-curved:before {
-    content: "\e611";
+.icon-cross {
+    &:before {
+        content: $icon-cross;
+    }
 }
-.icon-cross:before {
-    content: "\e612";
+.icon-arrow-right-curved {
+    &:before {
+        content: $icon-arrow-right-curved;
+    }
 }
-.icon-cross-circle:before {
-    content: "\e613";
+.icon-arrow-left-curved {
+    &:before {
+        content: $icon-arrow-left-curved;
+    }
 }
-.icon-info:before {
-    content: "\e614";
+.icon-calendar {
+    &:before {
+        content: $icon-calendar;
+    }
 }
-.icon-info-circle:before {
-    content: "\e615";
+.icon-gift {
+    &:before {
+        content: $icon-gift;
+    }
 }
-.icon-arrow-left:before {
-    content: "\e616";
+.icon-shopping-bag {
+    &:before {
+        content: $icon-shopping-bag;
+    }
 }
-.icon-arrow-down:before {
-    content: "\e617";
+.icon-menu {
+    &:before {
+        content: $icon-menu;
+    }
 }
-.icon-arrow-up:before {
-    content: "\e618";
+.icon-safe {
+    &:before {
+        content: $icon-safe;
+    }
 }
-.icon-arrow-right:before {
-    content: "\e619";
+.icon-store {
+    &:before {
+        content: $icon-store;
+    }
 }
-.icon-arrow-left-small:before {
-    content: "\e61a";
+.icon-search {
+    &:before {
+        content: $icon-search;
+    }
 }
-.icon-arrow-down-small:before {
-    content: "\e61b";
+.icon-arrow-left-xlarge {
+    &:before {
+        content: $icon-arrow-left-xlarge;
+    }
 }
-.icon-arrow-up-small:before {
-    content: "\e61c";
+.icon-arrow-right-xlarge {
+    &:before {
+        content: $icon-arrow-right-xlarge;
+    }
 }
-.icon-arrow-right-small:before {
-    content: "\e61d";
+.icon-pinterest-p {
+    &:before {
+        content: $icon-pinterest-p;
+    }
 }
-.icon-arrow-left-large:before {
-    content: "\e61e";
+.icon-instagram {
+    &:before {
+        content: $icon-instagram;
+    }
 }
-.icon-arrow-down-large:before {
-    content: "\e61f";
+.icon-facebook-f {
+    &:before {
+        content: $icon-facebook-f;
+    }
 }
-.icon-arrow-up-large:before {
-    content: "\e620";
+.icon-arrow-right-solid {
+    &:before {
+        content: $icon-arrow-right-solid;
+    }
 }
-.icon-arrow-right-large:before {
-    content: "\e621";
+.icon-stamp {
+    &:before {
+        content: $icon-stamp;
+    }
 }
-.icon-link:before {
-    content: "\e622";
+.icon-map-pin {
+    &:before {
+        content: $icon-map-pin;
+    }
 }
-.icon-cross2:before {
-    content: "\e117";
+.icon-telephone-handset {
+    &:before {
+        content: $icon-telephone-handset;
+    }
+}
+.icon-cross2 {
+    &:before {
+        content: $icon-cross2;
+    }
+}
+.icon-youtube {
+    &:before {
+        content: $icon-youtube;
+    }
+}
+.icon-vimeo {
+    &:before {
+        content: $icon-vimeo;
+    }
+}
+.icon-tumblr {
+    &:before {
+        content: $icon-tumblr;
+    }
+}
+.icon-pinterest {
+    &:before {
+        content: $icon-pinterest;
+    }
+}
+.icon-facebook {
+    &:before {
+        content: $icon-facebook;
+    }
+}
+.icon-twitter {
+    &:before {
+        content: $icon-twitter;
+    }
+}
+.icon-fancy {
+    &:before {
+        content: $icon-fancy;
+    }
 }
