@@ -12,8 +12,8 @@ var jsGroup = (function($, smoothScroll){
 
         // site header
         $('.header-main').headroom({
-            "offset": 78,
-            "tolerance": 5
+            offset: 78,
+            tolerance: 5
         });
 
         // carousel
