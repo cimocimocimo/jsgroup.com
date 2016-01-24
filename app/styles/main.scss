@@ -121,7 +121,6 @@ $max: max-width;
 body {
     padding-top: 78px;
 }
-
 .headroom {
     transition: transform 200ms linear;
     position: fixed;
@@ -137,6 +136,8 @@ body {
 .headroom--unpinned {
     transform: translateY(-100%);
 }
+
+// helper classes
 
 .hidden {
     display: none;
@@ -170,7 +171,7 @@ $header-main-height: 78px;
         text-align: center;
     }
 
-    @include at-query($max, $screen-sm){
+    @include at-query($max, $screen-sm-min){
         .column-brand {
             text-align: center;
         }
@@ -249,7 +250,7 @@ $header-main-height: 78px;
     }
 
     /* Desktop */
-    @include at-query ($min, $screen-md-min) {
+    @include at-query ($min, $screen-sm-min) {
         &:before,
         &:after {
             border-bottom-width: 38px;
@@ -265,7 +266,7 @@ $header-main-height: 78px;
     }
 
     /* Mobile */
-    @include at-query ($max, $screen-md-min) {
+    @include at-query ($max, $screen-sm-min) {
         &:before,
         &:after {
             border-bottom-width: 20px;
@@ -321,11 +322,11 @@ $header-main-height: 78px;
         }
     }
 
-    @include at-query($min, $screen-md-min){
+    @include at-query($min, $screen-sm-min){
         @include lookbook-modal-nav-sizing($height: 88px);
     }
 
-    @include at-query($max, $screen-md-min){
+    @include at-query($max, $screen-sm-min){
         @include lookbook-modal-nav-sizing($height: 44px);
     }
 }
@@ -389,25 +390,118 @@ $header-main-height: 78px;
 
 .our-brands {
     @extend %block-base;
+
 }
 
-.brand {
+%brand-column-base {
     margin-bottom: $grid-gutter-width;
 
-    img {
-        width: 100%;
-    }
-
-    @include at-query($max, $screen-sm){
+    @include at-query($max, $screen-sm-min){
         padding: 0;
         margin-bottom: 0;
+    }
+}
 
-        &.col-xs-6 {
-            width: 50%;
-        }
-        &.col-sm-12 {
-            width: 100%;
-        }
+.brand-large-column {
+    @extend %brand-column-base;
+    @extend .col-xs-12;
+}
+
+.brand-small-column {
+    @extend %brand-column-base;
+    @extend .col-xs-6;
+}
+
+%brand-base {
+    background-color: gray;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    position: relative;
+    border: 1px solid #C0C0C0;
+
+    .call-to-action {
+        font-family: Helvetica-Light, Helvetica, sans-serif;
+        font-weight: 100;
+        color: white;
+        letter-spacing: 1.87px;
+        text-transform: uppercase;
+    }
+
+    .inner-column {
+        height: 100%;
+    }
+
+    %brand-content-row-base {
+        @include verticalCenterChildElements;
+    }
+
+    .logo-row {
+        @extend %brand-content-row-base;
+
+        height: 80%;
+    }
+
+    .call-to-action-row {
+        @extend %brand-content-row-base;
+
+        height: 20%;
+    }
+}
+
+.brand-link {
+    .overlay {
+        transition: opacity 0.3s;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #010101;
+        opacity: 0.25;
+    }
+
+    &:hover .overlay {
+        opacity: 0;
+    }
+}
+
+.brand-large {
+    @extend %brand-base;
+
+    height: 330px;
+
+    .inner-column {
+        @extend .col-sm-6;
+    }
+
+    .brand-logo {
+        filter: drop-shadow(1px 0px 35px rgba(0,0,0,1));
+    }
+
+    .call-to-action {
+        font-size: 18px;
+        filter: drop-shadow(1px 0px 18px rgba(0,0,0,1));
+    }
+}
+
+.brand-small {
+    @extend %brand-base;
+
+    height: 210px;
+
+    .inner-column {
+        @extend .col-sm-12;
+    }
+
+    .brand-logo {
+        filter: drop-shadow(1px 0px 25px rgba(0,0,0,1));
+    }
+
+    .call-to-action {
+        font-size: 15px;
+        filter: drop-shadow(1px 0px 10px rgba(0,0,0,0.75));
     }
 }
 
@@ -443,6 +537,73 @@ $header-main-height: 78px;
         font-weight: 100;
         margin-bottom: 0;
     }
+}
+
+
+
+
+
+
+
+/* custom checkboxs and radios */
+
+input[type="checkbox"],
+input[type="radio"] {
+    display: inline;
+    margin: 0;
+
+    /* position labels following to be inline */
+    & + label {
+        display: inline-block;
+        text-transform: none;
+    }
+}
+
+%checkbox-radio-icon {
+    /* hide custom checkbox styles from browers that do not support css3 psuedo classes */
+    /* http://code.stephenmorley.org/html-and-css/hiding-rules-with-the-negation-pseudo-class/ */
+    &:not(old) {
+        display: none;
+
+        /* http://code.stephenmorley.org/html-and-css/styling-checkboxes-and-radio-buttons/ */
+        & + label {
+            @extend %icon-base;
+            @extend .icon-box-unchecked;
+
+            /* ensure correct positioning of the icon, if the block is center aligned. */
+            text-align: left;
+
+            &:before {
+                display: inline-block !important;
+                position: relative;
+                top: 1px;
+            }
+        }
+
+        &:checked + label {
+            @extend .icon-box-checked;
+        }
+
+        /* Desktop */
+        @include at-query ($min, $screen-sm-min) {
+            & + label:before {
+                width: 18px;
+                font-size: 16px;
+            }
+        }
+
+        /* Mobile */
+        @include at-query ($max, $screen-sm-min) {
+            & + label:before {
+                width: 24px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+input[type="radio"], input[type="checkbox"] {
+    @extend %checkbox-radio-icon;
 }
 
 .newsletter-signup {

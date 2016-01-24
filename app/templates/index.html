@@ -55,21 +55,39 @@
       </div>
     </div>
     
+    <style>
+        {% for brand in page.brands.brands %}
+        .{{ brand.classId }}.brand-large {
+            background-image: url({{ brand.image.largeSrc }});
+        }
+        .{{ brand.classId }}.brand-small {
+            background-image: url({{ brand.image.smallSrc }});
+        }
+        {% endfor %}
+    </style>
     <div id="brands" class="container our-brands">
       <div class="row">
         <div class="col-sm-12">
           <h2>Our Brands</h2>
         </div>
         {% for brand in page.brands.brands %}
-        {% if loop.first %}
-        <div class="brand col-sm-12">
-          <img src="{{ brand.image.largeSrc }}" alt="" />
-        </div>
-        {% else %}
-        <div class="brand col-xs-6">
-          <img src="{{ brand.image.smallSrc }}" alt="" />
-        </div>
-        {% endif %}
+          <div class="{% if loop.first %}brand-large-column{% else %}brand-small-column{% endif %}">
+            <a class="brand-link" href="{{ brand.url }}">
+              <div class="{{ brand.classId }} {% if loop.first %}brand-large{% else %}brand-small{% endif %}">
+                <div class="overlay"></div>
+                <div class="inner-column">
+                  <div class="logo-row">
+                    <img class="brand-logo "src="{{ brand.logo.src }}" alt="" />
+                  </div>
+                  <div class="call-to-action-row">
+                    <div class="call-to-action">
+                      Visit Site
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
         {% endfor %}
       </div>
     </div>

@@ -1,58 +1,82 @@
 carousel:
   items:
     -
-      src: http://placehold.it/1024x460/4ECDC4/FFFFFF?text=First+Carousel+Slide
+      # src: http://placehold.it/1024x460/4ECDC4/FFFFFF?text=First+Carousel+Slide
+      src: images/theia-bridal-carousel@2x.jpg
       alt: slide 1
     -
-      src: http://placehold.it/1024x460/C7F464/FFFFFF?text=Second+Carousel+Slide
+      # src: http://placehold.it/1024x460/C7F464/FFFFFF?text=Second+Carousel+Slide
+      src: images/carmen-carousel@2x.jpg
       alt: slide 2
     -
-      src: http://placehold.it/1024x460/FF6B6B/FFFFFF?text=Thrid+Carousel+Slide
+      # src: http://placehold.it/1024x460/FF6B6B/FFFFFF?text=Thrid+Carousel+Slide
+      src: images/david-meister-carousel@2x.jpg
       alt: slide 3
 
 brands:
   brands:
     -
       name: Theia
+      classId: brand-theia
       url: http://theiacouture.com
+      logo:
+        src: images/theia-logo.svg
       image:
-        largeSrc: http://placehold.it/940x330/CFF09E/FFFFFF?text=Theia+Logo
-        smallSrc: http://placehold.it/460x210/CFF09E/FFFFFF?text=Theia+Logo
+        largeSrc: images/brand-theia-bg@2x.jpg
+        smallSrc: images/brand-theia-bg.jpg
     -
       name: JS Collections
-      url: http://theiacouture.com
+      classId: brand-js-collections
+      url: http://www.jscollections.com/
+      logo:
+        src: images/js-collections-logo.svg
       image:
-        largeSrc: http://placehold.it/940x330/A8DBA8/FFFFFF?text=JS+Collections+Logo
-        smallSrc: http://placehold.it/460x210/A8DBA8/FFFFFF?text=JS+Collections+Logo
+        largeSrc: images/brand-js-collections-bg@2x.jpg
+        smallSrc: images/brand-js-collections-bg.jpg
     -
       name: Cynthia Rowley
-      url: http://theiacouture.com
+      classId: brand-cynthia-rowley
+      url: http://www.cynthiarowley.com/
+      logo:
+        src: images/cynthia-rowley-logo.svg
       image:
-        largeSrc: http://placehold.it/940x330/79BD9A/FFFFFF?text=Cynthia+Rowley+Logo
-        smallSrc: http://placehold.it/460x210/79BD9A/FFFFFF?text=Cynthia+Rowley+Logo
+        largeSrc: images/brand-cynthia-rowley-bg@2x.jpg
+        smallSrc: images/brand-cynthia-rowley-bg.jpg
     -
       name: Monique Lhuillier
-      url: http://theiacouture.com
+      classId: brand-monique-lhuillier
+      url: https://www.moniquelhuillier.com/
+      logo:
+        src: images/monique-lhuillier-logo.svg
       image:
-        largeSrc: http://placehold.it/940x330/3B8686/FFFFFF?text=Monique+Lhuillier+Logo
-        smallSrc: http://placehold.it/460x210/3B8686/FFFFFF?text=Monique+Lhuillier+Logo
+        largeSrc: images/brand-monique-lhuillier-bg@2x.jpg
+        smallSrc: images/brand-monique-lhuillier-bg.jpg
     -
       name: ML Brides
-      url: http://theiacouture.com
+      classId: brand-ml-brides
+      url: https://www.moniquelhuillier.com/collections/tags/wedding/bridesmaids
+      logo:
+        src: images/ml-brides-logo.svg
       image:
-        largeSrc: http://placehold.it/940x330/0B486B/FFFFFF?text=ML+Brides+Logo
-        smallSrc: http://placehold.it/460x210/0B486B/FFFFFF?text=ML+Brides+Logo
+        largeSrc: images/brand-ml-brides-bg@2x.jpg
+        smallSrc: images/brand-ml-brides-bg.jpg
     -
       name: David Meister
-      url: http://theiacouture.com
+      classId: brand-david-meister
+      url: http://davidmeister.com
+      logo:
+        src: images/david-meister-logo.svg
       image:
-        largeSrc: http://placehold.it/940x330/9BA657/FFFFFF?text=David+Meister+Logo
-        smallSrc: http://placehold.it/460x210/9BA657/FFFFFF?text=David+Meister+Logo
+        largeSrc: images/brand-david-meister-bg@2x.jpg
+        smallSrc: images/brand-david-meister-bg.jpg
     -
       name: Carmen Marc Valvo Infusion
-      url: http://theiacouture.com
+      classId: brand-carmen-marc-valvo
+      url: http://www.carmenmarcvalvo.com/
+      logo:
+        src: images/carmen-marc-valvo-logo.svg
       image:
-        largeSrc: http://placehold.it/940x330/A68C69/FFFFFF?text=Carmen+Marc+Valvo+Logo
-        smallSrc: http://placehold.it/460x210/A68C69/FFFFFF?text=Carmen+Marc+Valvo+Logo
+        largeSrc: images/brand-carmen-marc-valvo-bg@2x.jpg
+        smallSrc: images/brand-carmen-marc-valvo-bg.jpg
 about: a
 contact: c
