@@ -31,6 +31,12 @@ $border-radius-base: 0px;
 $border-radius-large: 0px;
 $border-radius-small: 0px;
 
+// Buttons
+$btn-font-weight: 100;
+$btn-default-color: #E2E2E2;
+$btn-default-bg: #2d2d2e;
+$btn-default-border: #363636;
+
 // Grid system
 $grid-gutter-width: 20px;
 
@@ -141,6 +147,12 @@ body {
 
 .hidden {
     display: none;
+}
+
+// extends
+
+%clearfix {
+    @include clearfix;
 }
 
 .browserupgrade {
@@ -381,10 +393,30 @@ $header-main-height: 78px;
     }
 }
 
+.slick-slider {
+    margin-bottom: 0;
+}
+
 %block-base {
+    margin-bottom: $grid-gutter-width;
+
     h2, h3 {
         text-align: center;
         text-transform: uppercase;
+    }
+
+    h2 {
+        margin: $grid-gutter-width*1.5 0 $grid-gutter-width*2;
+    }
+}
+
+%inverted-block-base {
+    background: black;
+    color: white;
+    margin-bottom: 0;
+
+    a {
+        color: white;
     }
 }
 
@@ -505,22 +537,19 @@ $header-main-height: 78px;
     }
 }
 
-%inverted-color-base {
-    background: black;
-    color: white;
-
-    a {
-        color: white;
-    }
-}
-
 .about {
     @extend %block-base;
+
+    margin-bottom: 100px;
 }
 
 .contact {
-    @extend %inverted-color-base;
+    @extend %inverted-block-base;
     @extend %block-base;
+
+    padding-top: $grid-gutter-width;
+    background: url('../images/contact-bg@2x.jpg') top center no-repeat;
+    background-size: cover;
 
     .address-column {
         &:first-of-type {
@@ -539,11 +568,9 @@ $header-main-height: 78px;
     }
 }
 
-
-
-
-
-
+.contact-address-row {
+    margin-bottom: $grid-gutter-width*2.5;
+}
 
 /* custom checkboxs and radios */
 
@@ -609,25 +636,56 @@ input[type="radio"], input[type="checkbox"] {
 .newsletter-signup {
     background: rgba(#565656, 0.81);
     padding: $grid-gutter-width $grid-gutter-width/2;
+    margin-bottom: $grid-gutter-width/2;
 
     label {
         font-weight: 100;
     }
 
     .email-row {
+        @extend %clearfix;
+
+        margin-bottom: $grid-gutter-width;
+
         label {
             font-size: 20px;
             line-height: 36px;
+            margin-bottom: 0;
         }
 
         input {
             font-weight: 100;
         }
     }
+
+    .options-row {
+        @extend %clearfix;
+
+        margin-bottom: $grid-gutter-width;
+
+        h4 {
+            font-size: 14px;
+            margin-top: 0;
+        }
+
+        label {
+            font-size: 12px;
+            margin-right: 10px;
+
+            &:before {
+                font-size: 12px;
+                width: 16px;
+            }
+        }
+
+        .check-all-checkbox-label {
+            font-weight: 600;
+        }
+    }
 }
 
 footer {
-    @extend %inverted-color-base;
+    @extend %inverted-block-base;
 
     height: 55px;
     text-align: right;
