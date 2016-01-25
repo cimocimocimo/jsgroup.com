@@ -61,6 +61,11 @@ $input-color-placeholder: #e2e2e2;
 $fontFilePath: '../fonts'; // no trailing slash!
 $fontStackAvenirNext: 'Avenir Next', 'Helvetica Neue', Helvetica, sans-serif;
 
+// header
+$header-main-height: 78px;
+$header-main-brand-height-mobile: 96px;
+$header-main-nav-height-mobile: 46px;
+
 @mixin font-face($font-name, $font-filename-base, $style: 'normal', $weight: 400){
     @font-face {
         font-family: '#{$font-name}';
@@ -123,12 +128,17 @@ $max: max-width;
 
 @import 'icons';
 
-// header
+// headroom styles to hide the header on scroll
 body {
-    padding-top: 78px;
+    @include at-query($min, $screen-sm-min){
+        padding-top: $header-main-height;
+    }
+    @include at-query($max, $screen-sm-min){
+        padding-top: $header-main-brand-height-mobile + $header-main-nav-height-mobile;
+    }
 }
 .headroom {
-    transition: transform 200ms linear;
+    transition: transform 0.3s;
     position: fixed;
     z-index: 100;
     width: 100%;
@@ -162,30 +172,42 @@ body {
   padding: 0.2em 0;
 }
 
-$header-main-height: 78px;
 .header-main {
     border-bottom: 1px solid #ECECEC;
     background: white;
+    z-index: 1000;
 
     // columns
-    .row > div {
-        height: $header-main-height;
-        padding: 12px 0;
+    %header-main-column-base {
+        @include verticalCenterChildElements;
+
+        @include at-query($min, $screen-sm-min){
+            height: $header-main-height;
+            padding: 12px 0;
+        }
     }
 
     .column-brand {
-
+        @extend %header-main-column-base;
     }
 
     .column-nav {
-        @include verticalCenterChildElements;
+        @extend %header-main-column-base;
 
         text-align: center;
     }
 
     @include at-query($max, $screen-sm-min){
+        padding: 0;
+
+        .column-nav {
+            height: $header-main-nav-height-mobile;
+        }
+
         .column-brand {
+            height: $header-main-brand-height-mobile;
             text-align: center;
+            border-bottom: 1px solid #ececec;
         }
     }
 }
@@ -240,7 +262,7 @@ $header-main-height: 78px;
             style: solid;
             color: #fff;
         }
-        z-index: 1000;
+        z-index: 100;
     }
 
     &:before {
@@ -694,7 +716,7 @@ input[type="radio"], input[type="checkbox"] {
             padding-right: $grid-gutter-width*1.5;
 
             &:hover,
-            &: active {
+            &:active {
                 background: linear-gradient(to bottom, black, #363636);
             }
         }
