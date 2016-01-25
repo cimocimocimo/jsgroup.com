@@ -367,7 +367,9 @@ $header-main-height: 78px;
 
     .slick-prev,
     .slick-next {
-        color: #333;
+        &:before {
+            color: #888888;
+        }
     }
 
     .slick-prev {
