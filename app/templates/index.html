@@ -66,6 +66,7 @@
         }
         {% endfor %}
     </style>
+    
     <div id="brands" class="container our-brands">
       <div class="row">
         <div class="col-sm-12">
@@ -73,20 +74,20 @@
         </div>
         {% for brand in page.brands.brands %}
           <div class="{% if loop.first %}brand-large-column{% else %}brand-small-column{% endif %}">
-            <a class="brand-link" href="{{ brand.url }}">
-              <div class="{{ brand.classId }} {% if loop.first %}brand-large{% else %}brand-small{% endif %}">
-                <div class="overlay"></div>
-                <div class="inner-column">
-                  <div class="logo-row">
-                    <img class="brand-logo "src="{{ brand.logo.src }}" alt="" />
-                  </div>
-                  <div class="call-to-action-row">
-                    <div class="call-to-action">
-                      Visit Site
-                    </div>
+            <a class="{{ brand.classId }} {% if loop.first %}brand-large{% else %}brand-small{% endif %}" href="{{ brand.url }}">
+
+              <div class="overlay"></div>
+              <div class="inner-column">
+                <div class="logo-row">
+                  <img class="brand-logo "src="{{ brand.logo.src }}" alt="" />
+                </div>
+                <div class="call-to-action-row">
+                  <div class="call-to-action">
+                    Visit Site
                   </div>
                 </div>
               </div>
+              
             </a>
           </div>
         {% endfor %}
