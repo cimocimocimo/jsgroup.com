@@ -10,7 +10,7 @@ var jsGroup = (function($, smoothScroll){
 
         console.log(checkAllCheckbox, otherNewsletterCheckboxes);
 
-        checkAllCheckbox.change(function(event){
+        checkAllCheckbox.change(function(){
             var doCheckAll = checkAllCheckbox.is(':checked');
 
             if (doCheckAll){
@@ -20,7 +20,7 @@ var jsGroup = (function($, smoothScroll){
             }
         });
 
-        otherNewsletterCheckboxes.change(function(event){
+        otherNewsletterCheckboxes.change(function(){
             checkAllCheckbox.prop('checked', false);
         });
     }
