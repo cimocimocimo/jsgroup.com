@@ -1,16 +1,19 @@
 carousel:
   items:
     -
-      # src: http://placehold.it/1024x460/4ECDC4/FFFFFF?text=First+Carousel+Slide
-      src: images/theia-bridal-carousel@2x.jpg
+      src:
+        desktop: images/theia-bridal-carousel@2x.jpg
+        mobile: images/theia-bridal-carousel-mobile@2x.jpg
       alt: slide 1
     -
-      # src: http://placehold.it/1024x460/C7F464/FFFFFF?text=Second+Carousel+Slide
-      src: images/carmen-carousel@2x.jpg
+      src:
+        desktop: images/carmen-carousel@2x.jpg
+        mobile: images/carmen-carousel-mobile@2x.jpg
       alt: slide 2
     -
-      # src: http://placehold.it/1024x460/FF6B6B/FFFFFF?text=Thrid+Carousel+Slide
-      src: images/david-meister-carousel@2x.jpg
+      src:
+        desktop: images/david-meister-carousel@2x.jpg
+        mobile: images/david-meister-carousel-mobile@2x.jpg
       alt: slide 3
 
 brands:

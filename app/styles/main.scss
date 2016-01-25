@@ -415,6 +415,30 @@ body {
             content: "\e607";
         }
     }
+
+    @include at-query($min, $screen-sm-min){
+        .slide {
+            .slide-image-desktop {
+                display: block;
+            }
+
+            .slide-image-mobile {
+                display: none;
+            }
+        }
+    }
+
+    @include at-query($max, $screen-sm-min){
+        .slide {
+            .slide-image-desktop {
+                display: none;
+            }
+
+            .slide-image-mobile {
+                display: block;
+            }
+        }
+    }
 }
 
 .slick-slider {
