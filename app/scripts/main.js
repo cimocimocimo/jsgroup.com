@@ -2,8 +2,33 @@
 'use strict';
 
 var jsGroup = (function($, smoothScroll){
+
+    function newsletterSignupCheckAll(){
+        var checkAllCheckboxID = 'newsletter-signup-list-check-all',
+            checkAllCheckbox = $('#' + checkAllCheckboxID),
+            otherNewsletterCheckboxes = $('input[type=checkbox]').filter('[id!=' + checkAllCheckboxID + ']');
+
+        console.log(checkAllCheckbox, otherNewsletterCheckboxes);
+
+        checkAllCheckbox.change(function(event){
+            var doCheckAll = checkAllCheckbox.is(':checked');
+
+            if (doCheckAll){
+                otherNewsletterCheckboxes.prop('checked', true);
+            } else {
+                otherNewsletterCheckboxes.prop('checked', false);
+            }
+        });
+
+        otherNewsletterCheckboxes.change(function(event){
+            checkAllCheckbox.prop('checked', false);
+        });
+    }
+
     function publicInit(){
         console.log('publicInit');
+
+        newsletterSignupCheckAll();
 
         smoothScroll.init({
             offset: 16,
@@ -25,7 +50,6 @@ var jsGroup = (function($, smoothScroll){
             autoplaySpeed: 3500,
             speed: 1500
         });
-
     }
 
     return {
