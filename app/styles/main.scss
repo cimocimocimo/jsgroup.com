@@ -474,13 +474,13 @@ $header-main-height: 78px;
     .logo-row {
         @extend %brand-content-row-base;
 
-        height: 80%;
+        height: 67%;
     }
 
     .call-to-action-row {
         @extend %brand-content-row-base;
 
-        height: 20%;
+        height: 33%;
     }
 }
 
@@ -682,6 +682,21 @@ input[type="radio"], input[type="checkbox"] {
 
         .check-all-checkbox-label {
             font-weight: 600;
+        }
+    }
+
+    .submit-button-row {
+        button {
+            transition: all 0.3;
+            background: linear-gradient(to top, black, #363636);
+            background-position: 0;
+            padding-left: $grid-gutter-width*1.5;
+            padding-right: $grid-gutter-width*1.5;
+
+            &:hover,
+            &: active {
+                background: linear-gradient(to bottom, black, #363636);
+            }
         }
     }
 }
