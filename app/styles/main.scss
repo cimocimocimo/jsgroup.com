@@ -645,11 +645,27 @@ body {
 
     @include at-query($min, $screen-sm-min){
         margin-bottom: 100px;
+
+        p {
+            font-size: 20px;
+        }
     }
 
     @include at-query($max, $screen-sm-min){
         padding-left: $grid-gutter-width*1.5;
         padding-right: $grid-gutter-width*1.5;
+
+        p {
+            font-size: 16px;
+            line-height: 21px;
+        }
+    }
+
+    @include at-query($max, $screen-xs-min){
+        p {
+            font-size: 13px;
+            line-height: 19px;
+        }
     }
 }
 
