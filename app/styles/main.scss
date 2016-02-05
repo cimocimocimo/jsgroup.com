@@ -808,6 +808,10 @@ input[type="radio"], input[type="checkbox"] {
         }
     }
 
+    .mailchimp-responses-block {
+        margin-bottom: $grid-gutter-width;
+    }
+
     .submit-button-block {
         button {
             transition: all 0.3;
