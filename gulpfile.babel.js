@@ -224,7 +224,7 @@ gulp.task('default', ['clean', 'build']);
 gulp.task('publish:staging', ['clean', 'build'], function(){
     var publisher = $.awspublish.create({
         params: {
-            Bucket: 'jsgroup.cimolini.com'
+            Bucket: 'staging.jsgroup.com'
         }
     });
 
@@ -234,9 +234,10 @@ gulp.task('publish:staging', ['clean', 'build'], function(){
         'Expires': 0
     };
 
-    return gulp.src('./dist/**')
+    // ordering is important.
+    gulp.src(['./dist/**', './staging-file-overrides/**'])
         .pipe(publisher.publish(headers))
-        .pipe(publisher.cache()) // create a cache file to speed up consecutive uploads
+        .pipe(publisher.sync())
         .pipe($.awspublish.reporter()); // print upload updates to console
 });
 
@@ -244,7 +245,7 @@ gulp.task('publish:staging', ['clean', 'build'], function(){
 gulp.task('publish:production', ['clean', 'build'], function(){
     var publisher = $.awspublish.create({
         params: {
-            Bucket: 'jsgroup.cimolini.com'
+            Bucket: 'jsgroup.com'
         }
     });
 
@@ -255,7 +256,6 @@ gulp.task('publish:production', ['clean', 'build'], function(){
     return gulp.src('./dist/**')
         .pipe(publisher.publish(headers))
         .pipe(publisher.sync())
-        // .pipe(publisher.cache()) // create a cache file to speed up consecutive uploads
         .pipe($.awspublish.reporter()); // print upload updates to console
 });
 

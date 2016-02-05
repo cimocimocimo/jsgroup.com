@@ -1,4 +1,6 @@
 # robotstxt.org/
 
 User-agent: * 
-Disallow:
+Disallow: /fonts/
+Disallow: /scripts/
+Disallow: /styles/
