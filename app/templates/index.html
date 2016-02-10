@@ -100,11 +100,9 @@
           <h2>About Us</h2>
         </div>
         <div class="col-sm-10 col-xs-12 col-sm-offset-1 col-xs-offset-0">
-          <p>Groupe JS International has been a dynamic presence on the North American Fashion scene for over 40 years, having first made their mark in 1971, trading under the name Junior Scene.</p>
-          <p>Today, Groupe JS International has 7 strong divisions, and is widely recognized as one of the leading suppliers of Ladies Dress, Sportswear and Evening Wear, available in specialty stores, major chain stores as well as department stores around the world. Operating our of their head office in Montreal, Canada with offices in New York, this privately help company is an innovative force int he global marketplace. </p>
-          <p>Beyond the innovative strengths of this enterprising company lies a team of professionals who, from the beginning, have been guided by the more traditional ideals of customer service and product quality. Put simply, at the heart of Groupe JS International you will find people that are attentive to the needs of the retailers…people who are there to help their customers adapt to the ever changing challenges of today’s fashion markets. Each of the companies seven divisions has a unique attitude that not only reflects the trends, but meets the needs of all women regardless of age or size. </p>
-          <p>But it’s the creative talents of a dynamic international design and management tram that helps keep Groupe JS at the forefront of current styles and trends. Together, they focus on offering modern women eclectic range of better clothing ranging from daywear to evening wear and prom to bridal. </p>
-          <p>Groupe JS’ goal for the future is simple. Whether for their own brands or private labels, they will continue to search world fashion venues for the inspiration that fuels their unrelenting drive and fulfill a creative vision that reflects extremely high standards and an open-minded approach to modern design. </p>
+          {% for paragraph in page.about.content %}
+            <p>{{ paragraph }}</p>
+          {% endfor %}
         </div>
       </div>
     </div>
