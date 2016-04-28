@@ -30,7 +30,7 @@ brands:
     -
       name: Monique Lhuillier
       classId: brand-monique-lhuillier
-      url: https://www.moniquelhuillier.com/
+      url: http://www.moniquelhuillier.com/shop/categories/ml-monique-lhuillier
       logo:
         src: images/monique-lhuillier-logo.svg
       image:
@@ -39,7 +39,7 @@ brands:
     -
       name: ML Brides
       classId: brand-ml-brides
-      url: https://www.moniquelhuillier.com/collections/tags/wedding/bridesmaids
+      url: http://www.moniquelhuillier.com/collections/tags/wedding/bridesmaids/fall-2016/content
       logo:
         src: images/ml-brides-logo.svg
       image:
