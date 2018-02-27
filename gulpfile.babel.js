@@ -8,6 +8,7 @@ import {stream as wiredep} from 'wiredep';
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
+import AWS from 'aws-sdk';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -225,12 +226,12 @@ gulp.task('publish:staging', ['clean', 'build'], function(){
     var publisher = $.awspublish.create({
         params: {
             Bucket: 'staging.jsgroup.com'
-        }
+        },
+        credentials: new AWS.SharedIniFileCredentials({profile: 'northmedia'})
     });
 
     var headers = {
         'Cache-Control': 'no-cache, no-store, must-revalidate',
-        // 'Pragma': 'no-cache',
         'Expires': 0
     };
 
@@ -258,4 +259,3 @@ gulp.task('publish:production', ['clean', 'build'], function(){
         .pipe(publisher.sync())
         .pipe($.awspublish.reporter()); // print upload updates to console
 });
-
