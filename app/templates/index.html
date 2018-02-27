@@ -56,16 +56,7 @@
       </div>
     </div>
 
-    <style>
-        {% for brand in page.brands.brands %}
-        .{{ brand.classId }}.brand-large {
-            background-image: url({{ brand.image.largeSrc }});
-        }
-        .{{ brand.classId }}.brand-small {
-            background-image: url({{ brand.image.smallSrc }});
-        }
-        {% endfor %}
-    </style>
+    <style>{% for brand in page.brands.brands %}.{{ brand.classId }}.brand-large{background-image:url({{ brand.image.largeSrc }});}.{{ brand.classId }}.brand-small{background-image:url({{ brand.image.smallSrc }});}{% endfor %}</style>
 
     <div id="brands" class="container our-brands">
       <div class="row">
@@ -73,23 +64,23 @@
           <h2>Our Brands</h2>
         </div>
         {% for brand in page.brands.brands %}
-          <div class="{% if loop.first %}brand-large-column{% else %}brand-small-column{% endif %}">
-            <a class="{{ brand.classId }} {% if loop.first %}brand-large{% else %}brand-small{% endif %}" href="{{ brand.url }}">
+        <div class="{% if loop.first %}brand-large-column{% else %}brand-small-column{% endif %}">
+          <a class="{{ brand.classId }} {% if loop.first %}brand-large{% else %}brand-small{% endif %}" href="{{ brand.url }}">
 
-              <div class="overlay"></div>
-              <div class="inner-column">
-                <div class="logo-row">
-                  <img class="brand-logo "src="{{ brand.logo.src }}" alt="" />
-                </div>
-                <div class="call-to-action-row">
-                  <div class="call-to-action">
-                    Visit Site
-                  </div>
+            <div class="overlay"></div>
+            <div class="inner-column">
+              <div class="logo-row">
+                <img class="brand-logo "src="{{ brand.logo.src }}" alt="" />
+              </div>
+              <div class="call-to-action-row">
+                <div class="call-to-action">
+                  Visit Site
                 </div>
               </div>
+            </div>
 
-            </a>
-          </div>
+          </a>
+        </div>
         {% endfor %}
       </div>
     </div>
@@ -101,7 +92,7 @@
         </div>
         <div class="col-sm-10 col-xs-12 col-sm-offset-1 col-xs-offset-0">
           {% for paragraph in page.about.content %}
-            <p>{{ paragraph }}</p>
+          <p>{{ paragraph }}</p>
           {% endfor %}
         </div>
       </div>
@@ -188,9 +179,9 @@
                 </div>
 
                 <div id="mce-responses" class="col-xs-12 mailchimp-responses-block">
-		  <div class="response" id="mce-error-response" style="display:none"></div>
-		  <div class="response" id="mce-success-response" style="display:none"></div>
-	        </div>
+		              <div class="response" id="mce-error-response" style="display:none"></div>
+		              <div class="response" id="mce-success-response" style="display:none"></div>
+	              </div>
 
                 <div class="submit-button-block col-sm-12 col-xs-4">
                   <button type="submit" id="mc-embedded-subscribe" name="subscribe" class="btn btn-default btn-lg">Submit</button>
@@ -215,14 +206,7 @@
     </footer>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your sites ID. -->
-    <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='https://www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-12670143-1');ga('send','pageview');
-    </script>
+    <script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='https://www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create','UA-12670143-1');ga('send','pageview');</script>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
