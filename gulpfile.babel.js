@@ -10,6 +10,8 @@ import path from 'path';
 import yaml from 'js-yaml';
 import AWS from 'aws-sdk';
 
+import config from './config.json';
+
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
@@ -223,39 +225,23 @@ gulp.task('default', ['clean', 'build']);
 // publish to S3 bucket
 // https://www.npmjs.com/package/gulp-awspublish
 gulp.task('publish:staging', ['clean', 'build'], function(){
-    var publisher = $.awspublish.create({
-        params: {
-            Bucket: 'staging.jsgroup.com'
-        },
-        credentials: new AWS.SharedIniFileCredentials({profile: 'northmedia'})
-    });
-
-    var headers = {
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
-        'Expires': 0
-    };
-
-    // ordering is important.
-    gulp.src(['./dist/**', './staging-file-overrides/**'])
-        .pipe(publisher.publish(headers))
-        .pipe(publisher.sync())
-        .pipe($.awspublish.reporter()); // print upload updates to console
+    return publish(config.publish.staging);
 });
 
-// publish to S3 bucket
 gulp.task('publish:production', ['clean', 'build'], function(){
-    var publisher = $.awspublish.create({
-        params: {
-            Bucket: 'jsgroup.com'
-        }
-    });
-
-    var headers = {
-        'Cache-Control': 'max-age=315360000, no-transform, public'
-    };
-
-    return gulp.src('./dist/**')
-        .pipe(publisher.publish(headers))
-        .pipe(publisher.sync())
-        .pipe($.awspublish.reporter()); // print upload updates to console
+    return publish(config.publish.production);
 });
+
+function publish(cfg){
+  var publisher = $.awspublish.create({
+    params: {
+      Bucket: cfg.domain
+    },
+    credentials: new AWS.SharedIniFileCredentials({profile: cfg.awsProfile})
+  });
+
+  return gulp.src(cfg.globArray)
+    .pipe(publisher.publish(cfg.headers))
+    .pipe(publisher.sync())
+    .pipe($.awspublish.reporter()); // print upload updates to console
+}

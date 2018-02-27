@@ -1,0 +1,21 @@
+{
+  "publish": {
+    "production": {
+      "awsProfile": "northmedia",
+      "domain": "jsgroup.com",
+      "globArray": ["./dist/**"],
+      "headers": {
+        "Cache-Control": "max-age=315360000, no-transform, public"
+      }
+    },
+    "staging": {
+      "awsProfile": "northmedia",
+      "domain": "staging.jsgroup.com",
+      "globArray": ["./dist/**", "./staging-file-overrides/**"],
+      "headers": {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Expires": 0
+      }
+    }
+  }
+}
