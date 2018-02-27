@@ -55,14 +55,14 @@ brands:
         largeSrc: images/brand-js-collections-bg@2x.jpg
         smallSrc: images/brand-js-collections-bg.jpg
     -
-      name: Cynthia Rowley
-      classId: brand-cynthia-rowley
-      url: http://www.cynthiarowley.com/
+      name: Kay Unger
+      classId: brand-kay-unger
+      url: https://www.kayunger.com/
       logo:
-        src: images/cynthia-rowley-logo.svg
+        src: images/kay-unger-logo.png
       image:
-        largeSrc: images/brand-cynthia-rowley-bg@2x.jpg
-        smallSrc: images/brand-cynthia-rowley-bg.jpg
+        largeSrc: images/brand-kay-unger-bg@2x.jpg
+        smallSrc: images/brand-kay-unger-bg.jpg
     -
       name: David Meister
       classId: brand-david-meister
