@@ -9,11 +9,16 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 import AWS from 'aws-sdk';
+import yargs from 'yargs';
 
 import config from './config.json';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+const argv = yargs.argv;
+
+// pass --production flag as arg for prod settings.
+const isProduction = (argv.production === undefined) ? false : true;
 
 gulp.task('styles', () => {
     return gulp.src('app/styles/*.scss')
@@ -224,15 +229,8 @@ gulp.task('default', ['clean', 'build']);
 
 // publish to S3 bucket
 // https://www.npmjs.com/package/gulp-awspublish
-gulp.task('publish:staging', ['clean', 'build'], function(){
-    return publish(config.publish.staging);
-});
-
-gulp.task('publish:production', ['clean', 'build'], function(){
-    return publish(config.publish.production);
-});
-
-function publish(cfg){
+gulp.task('publish', ['clean', 'build'], function(){
+  var cfg = isProduction ? config.publish.production : config.publish.staging;
   var publisher = $.awspublish.create({
     params: {
       Bucket: cfg.domain
@@ -240,8 +238,10 @@ function publish(cfg){
     credentials: new AWS.SharedIniFileCredentials({profile: cfg.awsProfile})
   });
 
+  console.log('Publishing to: ' + cfg.domain);
+
   return gulp.src(cfg.globArray)
     .pipe(publisher.publish(cfg.headers))
     .pipe(publisher.sync())
     .pipe($.awspublish.reporter()); // print upload updates to console
-}
+});
