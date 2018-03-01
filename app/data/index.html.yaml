@@ -28,6 +28,15 @@ brands:
         largeSrc: images/brand-theia-bg@2x.jpg
         smallSrc: images/brand-theia-bg.jpg
     -
+      name: Amur
+      classId: brand-amur
+      url: https://www.amur.com/
+      logo:
+        src: images/amur-logo.svg
+      image:
+        largeSrc: images/brand-amur-bg@2x.jpg
+        smallSrc: images/brand-amur-bg.jpg
+    -
       name: Monique Lhuillier
       classId: brand-monique-lhuillier
       url: http://www.moniquelhuillier.com/shop/categories/ml-monique-lhuillier
@@ -81,15 +90,6 @@ brands:
       image:
         largeSrc: images/brand-carmen-marc-valvo-bg@2x.jpg
         smallSrc: images/brand-carmen-marc-valvo-bg.jpg
-    -
-      name: Amur
-      classId: brand-amur
-      url: https://www.amur.com/
-      logo:
-        src: images/amur-logo.svg
-      image:
-        largeSrc: images/brand-amur-bg@2x.jpg
-        smallSrc: images/brand-amur-bg.jpg
 about:
   content:
     - Groupe JS International has been a dynamic presence on the North American Fashion scene for over 40 years, having first made their mark in 1971, trading under the name Junior Scene.
