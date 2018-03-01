@@ -20,12 +20,43 @@
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
+
+    <style type="text/css" media="screen">
+      #loading {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-color: #fff;
+        z-index: 100000;
+        text-align: center;
+        opacity: 1;
+        visibility: visible;
+        transition: all 1s;
+      }
+
+      #loading.loaded {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      #loading img {
+        position: absolute;
+        top: 50%;
+        margin-top: -26px;
+        left: 50%;
+        margin-left: -112px;
+      }
+    </style>
   </head>
   <body>
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
+    <script>
+      document.write("<div id='loading'><img src='images/js-group-logo.svg' width='224px' height='52px'></div>")
+    </script>
     <header class="header-main container-fluid">
       <div class="container">
         <div class="row">
@@ -56,8 +87,6 @@
       </div>
     </div>
 
-    <style>{% for brand in page.brands.brands %}.{{ brand.classId }}.brand-large{background-image:url({{ brand.image.largeSrc }});}.{{ brand.classId }}.brand-small{background-image:url({{ brand.image.smallSrc }});}{% endfor %}</style>
-
     <div id="brands" class="container our-brands">
       <div class="row">
         <div class="col-sm-12">
@@ -65,7 +94,9 @@
         </div>
         {% for brand in page.brands.brands %}
         <div class="{% if loop.first %}brand-large-column{% else %}brand-small-column{% endif %}">
-          <a class="{{ brand.classId }} {% if loop.first %}brand-large{% else %}brand-small{% endif %}" href="{{ brand.url }}">
+          <a class="{{ brand.classId }} {% if loop.first %}brand-large{% else %}brand-small{% endif %}"
+            href="{{ brand.url }}"
+            style="background-image:url({{ brand.image.largeSrc }});">
 
             <div class="overlay"></div>
             <div class="inner-column">
@@ -220,7 +251,7 @@
     <!-- endbuild -->
 
     <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
+    <script src="scripts/main.js" defer></script>
     <!-- endbuild -->
   </body>
 </html>
