@@ -46,10 +46,6 @@ var jsGroup = (function($, smoothScroll){
             autoplaySpeed: 3500,
             speed: 1500
         });
-
-      $(window).load(function() {
-        $('#loading').addClass('loaded');
-      });
     }
 
     return {
