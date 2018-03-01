@@ -8,8 +8,6 @@ var jsGroup = (function($, smoothScroll){
             checkAllCheckbox = $('#' + checkAllCheckboxID),
             otherNewsletterCheckboxes = $('input[type=checkbox]').filter('[id!=' + checkAllCheckboxID + ']');
 
-        console.log(checkAllCheckbox, otherNewsletterCheckboxes);
-
         checkAllCheckbox.change(function(){
             var doCheckAll = checkAllCheckbox.is(':checked');
 
@@ -26,8 +24,6 @@ var jsGroup = (function($, smoothScroll){
     }
 
     function publicInit(){
-        console.log('publicInit');
-
         newsletterSignupCheckAll();
 
         smoothScroll.init({

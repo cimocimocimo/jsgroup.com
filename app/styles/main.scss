@@ -136,7 +136,7 @@ body {
         padding-top: $header-main-brand-height-mobile + $header-main-nav-height-mobile;
     }
 }
-.headroom {
+.header-main {
     transition: transform 0.3s;
     position: fixed;
     z-index: 100;
