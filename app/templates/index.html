@@ -92,9 +92,11 @@
         <div class="col-sm-12">
           <h2>Our Brands</h2>
         </div>
+
+        {% set firstBrandLarge = false %}
         {% for brand in page.brands.brands %}
-        <div class="{% if loop.first %}brand-large-column{% else %}brand-small-column{% endif %}">
-          <a class="{{ brand.classId }} {% if loop.first %}brand-large{% else %}brand-small{% endif %}"
+        <div class="{% if firstBrandLarge and loop.first %}brand-large-column{% else %}brand-small-column{% endif %}">
+          <a class="{{ brand.classId }} {% if firstBrandLarge and loop.first %}brand-large{% else %}brand-small{% endif %}"
             href="{{ brand.url }}"
             style="background-image:url({{ brand.image.largeSrc }});">
 
