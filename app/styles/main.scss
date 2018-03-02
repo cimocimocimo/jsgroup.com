@@ -51,9 +51,7 @@ $input-border: #2A2A2A;
 
 $input-color-placeholder: #e2e2e2;
 
-// @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-// bower:scss
-// endbower
+// load boostrap
 @import "app/styles/bootstrap-custom";
 
 // my variables

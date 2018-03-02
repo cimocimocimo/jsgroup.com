@@ -1,7 +1,7 @@
-/*global $, smoothScroll*/
+/*global $, SmoothScroll*/
 'use strict';
 
-var jsGroup = (function($, smoothScroll){
+var jsGroup = (function($, SmoothScroll){
 
     function newsletterSignupCheckAll(){
         var checkAllCheckboxID = 'newsletter-signup-list-check-all',
@@ -26,7 +26,7 @@ var jsGroup = (function($, smoothScroll){
     function publicInit(){
         newsletterSignupCheckAll();
 
-        smoothScroll.init({
+      var scroll = new SmoothScroll('a[href*="#"]', {
             offset: 16,
             speed: 700
         });
@@ -52,7 +52,7 @@ var jsGroup = (function($, smoothScroll){
         init: publicInit
     };
 
-})($, smoothScroll);
+})($, SmoothScroll);
 
 $(function(){
     jsGroup.init({});

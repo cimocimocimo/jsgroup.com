@@ -5,7 +5,12 @@
   },
   "devDependencies": {
     "aws-sdk": "^2.203.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.26.0",
     "browser-sync": "^2.2.1",
+    "chai": "^4.1.2",
+    "concurrent-transform": "^1.0.0",
     "del": "^3.0.0",
     "fs": "0.0.1-security",
     "gulp": "^3.9.0",
@@ -20,6 +25,7 @@
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^4.1.0",
     "gulp-load-plugins": "^1.5.0",
+    "gulp-modernizr": "^2.0.0",
     "gulp-nunjucks": "^3.1.1",
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^3.1.0",
@@ -28,7 +34,8 @@
     "gulp-uglify": "^3.0.0",
     "gulp-useref": "^3.0.0",
     "js-yaml": "^3.5.2",
-    "main-bower-files": "^2.5.0",
+    "mocha": "^5.0.1",
+    "npmfiles": "^0.1.1",
     "path": "^0.12.7",
     "wiredep": "^4.0.0",
     "yargs": "^11.0.0"
@@ -47,8 +54,27 @@
     }
   },
   "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-register": "^6.26.0"
+    "bootstrap-sass": "^3.3.7",
+    "headroom.js": "^0.9.4",
+    "jquery": "^3.3.1",
+    "slick-carousel": "^1.8.1",
+    "smooth-scroll": "^12.1.5"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": "**/*.{eot,svg,ttf,woff,woff2}"
+    },
+    "headroom.js": {
+      "ignore": true
+    },
+    "jquery": {
+      "ignore": true
+    },
+    "slick-carousel":{
+      "ignore": true
+    },
+    "smooth-scroll": {
+      "ignore": true
+    }
   }
 }
