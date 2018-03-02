@@ -246,7 +246,7 @@ gulp.task('publish', ['clean', 'build'], function(){
   console.log('Publishing to: ' + cfg.domain);
 
   return gulp.src(cfg.globArray)
-    .pipe(publisher.publish(cfg.headers))
+    .pipe(parallelize(publisher.publish(cfg.headers), 100))
     .pipe(publisher.sync())
     .pipe($.awspublish.reporter()); // print upload updates to console
 });
